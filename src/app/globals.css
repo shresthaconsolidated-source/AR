@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #05070a;
+  --foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-glow: #3b82f640;
+  --accent: #22d3ee;
+  --accent-glow: #22d3ee40;
+  --danger: #ef4444;
+  --danger-glow: #ef444440;
+  --success: #10b981;
+  --success-glow: #10b98140;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(15, 23, 42, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-2xl backdrop-blur-xl shadow-2xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .neon-border {
+    @apply border border-[var(--primary)] shadow-[0_0_15px_rgba(59,130,246,0.3)];
+  }
+
+  .neon-text-primary {
+    @apply text-[var(--primary)] drop-shadow-[0_0_8px_rgba(59,130,246,0.5)];
+  }
+
+  .neon-text-accent {
+    @apply text-[var(--accent)] drop-shadow-[0_0_8px_rgba(34,211,238,0.5)];
+  }
+
+  .gradient-bg {
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(34, 211, 238, 0.15), transparent 40%),
+                #05070a;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Recharts Overrides */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 255, 255, 0.05);
+}
+
+.recharts-text {
+  fill: rgba(255, 255, 255, 0.5) !important;
+  font-size: 12px;
 }

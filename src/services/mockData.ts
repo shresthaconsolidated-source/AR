@@ -1,0 +1,140 @@
+import { Invoice, Customer, AppData } from "../types";
+
+export const MOCK_DATA: AppData = {
+  invoices: [
+    {
+      invoiceId: "INV-001",
+      customerId: "C-001",
+      companyName: "Everest Education Consulting",
+      invoiceNumber: "INV-2026-001",
+      invoiceDate: "2026-01-05",
+      dueDate: "2026-01-20",
+      invoiceAmount: 120000,
+      amountPaid: 0,
+      outstandingAmount: 120000,
+      currency: "NPR",
+      invoiceStatus: "Overdue",
+      daysOverdue: 55,
+      lastReminderDate: "2026-03-01",
+      reminderStage: 3,
+      paymentPromiseDate: "2026-03-25",
+      reminderStatus: "Payment Promised",
+      notes: "First invoice for Q1 Consulting",
+      riskFlag: "High"
+    },
+    {
+      invoiceId: "INV-002",
+      customerId: "C-002",
+      companyName: "Himalayan Logistics Pvt Ltd",
+      invoiceNumber: "INV-2026-002",
+      invoiceDate: "2026-01-12",
+      dueDate: "2026-01-27",
+      invoiceAmount: 85000,
+      amountPaid: 20000,
+      outstandingAmount: 65000,
+      currency: "NPR",
+      invoiceStatus: "Partial",
+      daysOverdue: 48,
+      lastReminderDate: "2026-03-05",
+      reminderStage: 2,
+      paymentPromiseDate: "2026-03-20",
+      reminderStatus: "Reminder Sent",
+      notes: "Logistics retainer",
+      riskFlag: "Medium"
+    },
+    {
+      invoiceId: "INV-003",
+      customerId: "C-003",
+      companyName: "Annapurna IT Solutions",
+      invoiceNumber: "INV-2026-003",
+      invoiceDate: "2026-03-10",
+      dueDate: "2026-03-25",
+      invoiceAmount: 60000,
+      amountPaid: 60000,
+      outstandingAmount: 0,
+      currency: "NPR",
+      invoiceStatus: "Paid",
+      daysOverdue: 0,
+      lastReminderDate: "",
+      reminderStage: 0,
+      paymentPromiseDate: "",
+      reminderStatus: "Paid",
+      notes: "Project phase 1 complete",
+      riskFlag: "None"
+    },
+    {
+      invoiceId: "INV-004",
+      customerId: "C-001",
+      companyName: "Everest Education Consulting",
+      invoiceNumber: "INV-2026-004",
+      invoiceDate: "2026-02-15",
+      dueDate: "2026-03-02",
+      invoiceAmount: 110000,
+      amountPaid: 0,
+      outstandingAmount: 110000,
+      currency: "NPR",
+      invoiceStatus: "Overdue",
+      daysOverdue: 14,
+      lastReminderDate: "2026-03-10",
+      reminderStage: 1,
+      paymentPromiseDate: "",
+      reminderStatus: "Reminder Sent",
+      notes: "Follow up required",
+      riskFlag: "Medium"
+    }
+  ],
+  customers: [
+    {
+      customerId: "C-001",
+      companyName: "Everest Education Consulting",
+      contactPerson: "Ramesh Shrestha",
+      phone: "9841123456",
+      email: "ramesh@everestedu.com",
+      billingFrequency: "Monthly",
+      paymentTerms: 15,
+      industry: "Education",
+      website: "everestedu.com",
+      country: "Nepal",
+      totalOutstanding: 230000,
+      openInvoicesCount: 2
+    },
+    {
+      customerId: "C-002",
+      companyName: "Himalayan Logistics Pvt Ltd",
+      contactPerson: "Suman Gurung",
+      phone: "9812233445",
+      email: "suman@himalayanlogistics.com",
+      billingFrequency: "Monthly",
+      paymentTerms: 30,
+      industry: "Logistics",
+      website: "himlogistics.com",
+      country: "Nepal",
+      totalOutstanding: 65000,
+      openInvoicesCount: 1
+    },
+    {
+      customerId: "C-003",
+      companyName: "Annapurna IT Solutions",
+      contactPerson: "Bikash Karki",
+      phone: "9803344556",
+      email: "bikash@annapurnait.com",
+      billingFrequency: "Monthly",
+      paymentTerms: 15,
+      industry: "IT Services",
+      website: "annapurnait.com",
+      country: "Nepal",
+      totalOutstanding: 0,
+      openInvoicesCount: 0
+    }
+  ],
+  expenses: [
+    { date: "2026-04-05", category: "Rent", amount: 45000, paymentType: "Cash", notes: "Office rent" },
+    { date: "2026-04-10", category: "Salaries", amount: 350000, paymentType: "Bank Transfer", notes: "Staff salaries" },
+    { date: "2026-04-15", category: "Utilities", amount: 12000, paymentType: "Digital Wallet", notes: "Internet and electricity" }
+  ],
+  budgets: [
+    { month: "2026-04", category: "Operations", budgetAmount: 500000, type: "Operational" },
+    { month: "2026-05", category: "Operations", budgetAmount: 500000, type: "Operational" }
+  ],
+  timestamp: new Date().toISOString()
+};
