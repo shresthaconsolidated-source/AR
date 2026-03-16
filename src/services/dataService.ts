@@ -73,6 +73,9 @@ export class DataService {
         customers: transformedCustomers,
         expenses: MOCK_DATA.expenses, // Fallback for now
         budgets: MOCK_DATA.budgets,   // Fallback for now
+        forecastMode: MOCK_DATA.forecastMode,
+        initialCash: MOCK_DATA.initialCash,
+        safeThreshold: MOCK_DATA.safeThreshold,
         timestamp: data.timestamp || new Date().toISOString(),
       };
     } catch (error) {

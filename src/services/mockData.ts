@@ -1,4 +1,4 @@
-import { Invoice, Customer, AppData } from "../types";
+import { Invoice, Customer, AppData, FinancialEntry } from "../types";
 
 export const MOCK_DATA: AppData = {
   invoices: [
@@ -41,46 +41,6 @@ export const MOCK_DATA: AppData = {
       reminderStatus: "Reminder Sent",
       notes: "Logistics retainer",
       riskFlag: "Medium"
-    },
-    {
-      invoiceId: "INV-003",
-      customerId: "C-003",
-      companyName: "Annapurna IT Solutions",
-      invoiceNumber: "INV-2026-003",
-      invoiceDate: "2026-03-10",
-      dueDate: "2026-03-25",
-      invoiceAmount: 60000,
-      amountPaid: 60000,
-      outstandingAmount: 0,
-      currency: "NPR",
-      invoiceStatus: "Paid",
-      daysOverdue: 0,
-      lastReminderDate: "",
-      reminderStage: 0,
-      paymentPromiseDate: "",
-      reminderStatus: "Paid",
-      notes: "Project phase 1 complete",
-      riskFlag: "None"
-    },
-    {
-      invoiceId: "INV-004",
-      customerId: "C-001",
-      companyName: "Everest Education Consulting",
-      invoiceNumber: "INV-2026-004",
-      invoiceDate: "2026-02-15",
-      dueDate: "2026-03-02",
-      invoiceAmount: 110000,
-      amountPaid: 0,
-      outstandingAmount: 110000,
-      currency: "NPR",
-      invoiceStatus: "Overdue",
-      daysOverdue: 14,
-      lastReminderDate: "2026-03-10",
-      reminderStage: 1,
-      paymentPromiseDate: "",
-      reminderStatus: "Reminder Sent",
-      notes: "Follow up required",
-      riskFlag: "Medium"
     }
   ],
   customers: [
@@ -97,44 +57,38 @@ export const MOCK_DATA: AppData = {
       country: "Nepal",
       totalOutstanding: 230000,
       openInvoicesCount: 2
-    },
-    {
-      customerId: "C-002",
-      companyName: "Himalayan Logistics Pvt Ltd",
-      contactPerson: "Suman Gurung",
-      phone: "9812233445",
-      email: "suman@himalayanlogistics.com",
-      billingFrequency: "Monthly",
-      paymentTerms: 30,
-      industry: "Logistics",
-      website: "himlogistics.com",
-      country: "Nepal",
-      totalOutstanding: 65000,
-      openInvoicesCount: 1
-    },
-    {
-      customerId: "C-003",
-      companyName: "Annapurna IT Solutions",
-      contactPerson: "Bikash Karki",
-      phone: "9803344556",
-      email: "bikash@annapurnait.com",
-      billingFrequency: "Monthly",
-      paymentTerms: 15,
-      industry: "IT Services",
-      website: "annapurnait.com",
-      country: "Nepal",
-      totalOutstanding: 0,
-      openInvoicesCount: 0
     }
   ],
   expenses: [
-    { date: "2026-04-05", category: "Rent", amount: 45000, paymentType: "Cash", notes: "Office rent" },
-    { date: "2026-04-10", category: "Salaries", amount: 350000, paymentType: "Bank Transfer", notes: "Staff salaries" },
-    { date: "2026-04-15", category: "Utilities", amount: 12000, paymentType: "Digital Wallet", notes: "Internet and electricity" }
+    {
+      id: "1",
+      category: "Payroll",
+      type: "Fixed",
+      monthlyValues: { Jan: 150000, Feb: 150000, Mar: 150000, Apr: 150000, May: 150000, Jun: 150000, Jul: 150000, Aug: 150000, Sep: 150000, Oct: 150000, Nov: 150000, Dec: 150000 }
+    },
+    {
+      id: "2",
+      category: "Marketing",
+      type: "Variable",
+      monthlyValues: { Jan: 20000, Feb: 25000, Mar: 30000, Apr: 20000, May: 15000, Jun: 20000, Jul: 25000, Aug: 30000, Sep: 20000, Oct: 15000, Nov: 20000, Dec: 25000 }
+    }
   ],
   budgets: [
-    { month: "2026-04", category: "Operations", budgetAmount: 500000, type: "Operational" },
-    { month: "2026-05", category: "Operations", budgetAmount: 500000, type: "Operational" }
+    {
+      id: "b1",
+      category: "Payroll",
+      type: "Fixed",
+      monthlyValues: { Jan: 140000, Feb: 140000, Mar: 140000, Apr: 140000, May: 140000, Jun: 140000, Jul: 140000, Aug: 140000, Sep: 140000, Oct: 140000, Nov: 140000, Dec: 140000 }
+    },
+    {
+      id: "b2",
+      category: "Marketing",
+      type: "Variable",
+      monthlyValues: { Jan: 25000, Feb: 25000, Mar: 25000, Apr: 25000, May: 25000, Jun: 25000, Jul: 25000, Aug: 25000, Sep: 25000, Oct: 25000, Nov: 25000, Dec: 25000 }
+    }
   ],
+  forecastMode: "Expenses",
+  initialCash: 500000,
+  safeThreshold: 200000,
   timestamp: new Date().toISOString()
 };
